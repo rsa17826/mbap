@@ -410,3 +410,4 @@ PROG: list[ProgressionNode] = [
 # each gate type is item - hoop
 # both sides of neg to pos gate is separate item?
 # each shower type is an item
+# each enemy group is a check
