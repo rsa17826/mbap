@@ -119,7 +119,12 @@ NON_POOL_PREFIXES: tuple[str, ...] = ("flag:",)
 # progression node). Previously called "moves" for this particular game --
 # there's nothing move-specific about the mechanism itself.
 # NOTE used for all items that are only added in the ap and not origionaly in the game as if not granted in game they wont be in any receives
-CORE_ITEMS: tuple[str, ...] = ()
+CORE_ITEMS: tuple[str, ...] = (
+  "Light Area Unlock",
+  "Multiply Hoop Unlock",
+  "Add Hoop Unlock",
+  "Exponent Hoop Unlock",
+)
 
 # Filler / trap items. Anything starting with "trap:" is classified as a
 # trap, everything else here is classified as ordinary filler.
