@@ -404,3 +404,9 @@ PROG: list[ProgressionNode] = [
   },
   # nowalls
 ]
+# TODO
+# pick up weapon is check? and item
+# each wall broken is check
+# each gate type is item
+# both sides of neg to pos gate is separate item?
+# each shower type is an item
