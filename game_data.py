@@ -98,7 +98,10 @@ EVENTS: list[EventDef] = [
 # category X", it never hardcodes what the prefixes themselves are.
 
 # Prefixes for items that get placed as real, shuffled locations.
-LOCATION_ITEM_PREFIXES: tuple[str, ...] = ("level:",)
+LOCATION_ITEM_PREFIXES: tuple[str, ...] = (
+  "level:",
+  "wall:",
+)
 
 # Prefixes for items that are logic-only events (not real placed locations).
 EVENT_ITEM_PREFIXES: tuple[str, ...] = ("flag:",)
@@ -141,9 +144,7 @@ LINKED_EVENT_TEMPLATES: dict[str, str] = {
 # Name of the boolean world option that, when True, gates completion behind
 # COMPLETION_REQUIRED_ITEMS. Set to None if completion should never be
 # gated by an option (rule is then just always-True).
-COMPLETION_OPTIONS: dict[str, list[str]] = {
-  "all_levels_complete": [f"flag:beat level{i + 1}" for i in range(5)]
-}
+COMPLETION_OPTIONS: dict[str, list[str]] = {"all_levels_complete": [f"flag:beat level{i + 1}" for i in range(5)]}
 
 
 # ---------------------------------------------------------------------------
@@ -375,6 +376,7 @@ def validate_config() -> None:
     missing_completion_items = set(COMPLETION_OPTIONS[copt]) - granted_items
     if missing_completion_items:
       errors.append(f"COMPLETION_OPTIONS[{copt}] references item(s) never granted anywhere: {sorted(missing_completion_items)}")
+
 
   if errors:
     raise DataConsistencyError("Data file consistency check failed -- refusing to generate with potentially incorrect data:\n- " + "\n- ".join(errors))
