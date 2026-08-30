@@ -78,10 +78,11 @@ def set_all_location_rules(world: World) -> None:
 def set_completion_condition(world: World) -> None:
   rule: Rule[World] = True_()
 
-  option_name = data.COMPLETION_OPTION_NAME
-  if option_name is not None and getattr(world.options, option_name):
-    for item in data.COMPLETION_REQUIRED_ITEMS:
-      rule &= Has(item)
+  for option_name in data.COMPLETION_OPTIONS:
+    if getattr(world.options, option_name):
+      for item in data.COMPLETION_OPTIONS[option_name]:
+        rule &= Has(item)
+
 
 
   world.set_completion_rule(rule)
