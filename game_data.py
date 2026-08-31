@@ -102,6 +102,7 @@ LOCATION_ITEM_PREFIXES: tuple[str, ...] = (
   "level:",
   "wall:",
   "egg:",
+  "weaponCheck:",
 )
 
 # Prefixes for items that are logic-only events (not real placed locations).
@@ -110,6 +111,7 @@ EVENT_ITEM_PREFIXES: tuple[str, ...] = ("flag:",)
 # Prefixes for items that go in the real AP item pool as progression items.
 POOL_PROGRESSION_PREFIXES: tuple[str, ...] = (
   "level:",
+  "weapon:",
   "Light Area Unlock",
   "Multiply Hoop Unlock",
   "Add Hoop Unlock",
@@ -118,7 +120,12 @@ POOL_PROGRESSION_PREFIXES: tuple[str, ...] = (
 
 # Prefixes for items that are never created as real pool items (they're
 # events/locations only, handled elsewhere in the item pool step).
-NON_POOL_PREFIXES: tuple[str, ...] = ("flag:", "wall:", "egg:")
+NON_POOL_PREFIXES: tuple[str, ...] = (
+  "flag:",
+  "wall:",
+  "egg:",
+  "weaponCheck:",
+)
 
 # Items that always exist in the item pool regardless of whether they're
 # granted by any _progression.py node's "receive" list (e.g. abilities the
@@ -127,6 +134,11 @@ NON_POOL_PREFIXES: tuple[str, ...] = ("flag:", "wall:", "egg:")
 # there's nothing move-specific about the mechanism itself.
 # NOTE used for all items that are only added in the ap and not origionaly in the game as if not granted in game they wont be in any receives
 CORE_ITEMS: tuple[str, ...] = (
+  "weapon:WeaponMachineGun",
+  "weapon:WeaponRocketLauncher",
+  "weapon:WeaponMultiplyCone",
+  "weapon:WeaponSword",
+  "weapon:WeaponFactorHammer",
   "Light Area Unlock",
   "Multiply Hoop Unlock",
   "Add Hoop Unlock",

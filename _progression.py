@@ -537,9 +537,108 @@ PROG: list[ProgressionNode] = [
       "egg:149.7 70.1 641.7",
     ],
   },
+  {
+    "room": "level1",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponMachineGun",
+    ],
+  },
+  {
+    "room": "level1",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponRocketLauncher",
+    ],
+  },
+  {
+    "room": "level2",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponRocketLauncher",
+    ],
+  },
+  {
+    "room": "level2",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponMachineGun",
+    ],
+  },
+  {
+    "room": "level2",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponMultiplyCone",
+    ],
+  },
+  {
+    "room": "level3",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponMachineGun",
+    ],
+  },
+  {
+    "room": "level3",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponSword",
+    ],
+  },
+  {
+    "room": "level4",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponMultiplyCone",
+    ],
+  },
+  {
+    "room": "level5",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponFactorHammer",
+    ],
+  },
+  {
+    "room": "level5",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponRocketLauncher",
+    ],
+  },
+  {
+    "room": "level5",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "weaponCheck:WeaponMachineGun",
+    ],
+  },
 ]
 # TODO
-# pick up weapon is check? and item
+# pick up weaponCheck is check? and item
 # each wall broken is check
 # each gate type is item - hoop
 # both sides of neg to pos gate is separate item?
