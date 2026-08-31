@@ -101,6 +101,7 @@ EVENTS: list[EventDef] = [
 LOCATION_ITEM_PREFIXES: tuple[str, ...] = (
   "level:",
   "wall:",
+  "egg:",
 )
 
 # Prefixes for items that are logic-only events (not real placed locations).
@@ -117,7 +118,7 @@ POOL_PROGRESSION_PREFIXES: tuple[str, ...] = (
 
 # Prefixes for items that are never created as real pool items (they're
 # events/locations only, handled elsewhere in the item pool step).
-NON_POOL_PREFIXES: tuple[str, ...] = ("flag:", "wall:")
+NON_POOL_PREFIXES: tuple[str, ...] = ("flag:", "wall:", "egg:")
 
 # Items that always exist in the item pool regardless of whether they're
 # granted by any _progression.py node's "receive" list (e.g. abilities the
