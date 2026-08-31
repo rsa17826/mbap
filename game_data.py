@@ -157,7 +157,7 @@ LINKED_EVENT_TEMPLATES: dict[str, str] = {
 # gated by an option (rule is then just always-True).
 COMPLETION_OPTIONS: dict[str, list[str]] = {"all_levels_complete": [f"flag:beat level{i + 1}" for i in range(5)]}
 
-
+OPTIONAL_CHECKS: dict[str, tuple[str, ...]] = {"walls_are_checks": ("wall:",)}
 # ---------------------------------------------------------------------------
 # Early-check weighting (used by generate_early / weight_early_checks option)
 # ---------------------------------------------------------------------------
@@ -177,6 +177,12 @@ OPTIONS = {
       "all_levels_complete",
       "game won when all levels have been beaten",
       True,
+      Toggle,
+    ),
+    (
+      "walls_are_checks",
+      "",
+      False,
       Toggle,
     ),
   ),

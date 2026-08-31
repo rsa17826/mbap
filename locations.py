@@ -5,6 +5,7 @@ from ._progression import PROG
 from BaseClasses import Location
 
 from worlds.AutoWorld import World
+from .world import OPTION_EXCLUDED_CHECKS
 
 LOCATION_NAME_TO_ID: dict[str, int] = {}
 
@@ -73,7 +74,7 @@ def create_events(world: World) -> None:
   # event-only (e.g. "flag:" prefixed items).
   for thing in PROG:
     for itemInfo in thing["receive"]:
-      if itemInfo.startswith(data.EVENT_ITEM_PREFIXES):
+      if itemInfo.startswith(data.EVENT_ITEM_PREFIXES) and not itemInfo.startswith(OPTION_EXCLUDED_CHECKS):
         event_name = itemInfo
 
         _ = world.get_region(thing["room"]).add_event(

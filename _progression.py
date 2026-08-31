@@ -21,35 +21,35 @@ PROG: list[ProgressionNode] = [
     "requires": [
       [],
     ],
-    "receive": ["level:level1", "flag:beat level1"],
+    "receive": ["level:level2", "flag:beat level1"],
   },
   {
     "room": "level2",
     "requires": [
       [],
     ],
-    "receive": ["level:level2", "flag:beat level2"],
+    "receive": ["level:level3", "flag:beat level2"],
   },
   {
     "room": "level3",
     "requires": [
       [],
     ],
-    "receive": ["level:level3", "flag:beat level3"],
+    "receive": ["level:level4", "flag:beat level3"],
   },
   {
     "room": "level4",
     "requires": [
       [],
     ],
-    "receive": ["level:level4", "flag:beat level4"],
+    "receive": ["level:level5", "flag:beat level4"],
   },
   {
     "room": "level5",
     "requires": [
       [],
     ],
-    "receive": ["level:level5", "flag:beat level5"],
+    "receive": ["flag:beat level5"],
   },
   # walls
   {

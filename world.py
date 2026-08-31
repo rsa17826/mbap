@@ -8,6 +8,7 @@ from worlds.AutoWorld import WebWorld, World
 from . import game_data as data
 from . import items, locations, regions, rules, web_world
 from . import options as Vex2_options
+OPTION_EXCLUDED_CHECKS = ()
 
 
 class Vex2World(World):
@@ -59,6 +60,11 @@ class Vex2World(World):
     from .items import FORCED_ITEMS
 
     super().generate_early()
+    for k in data.OPTIONAL_CHECKS:
+      if not getattr(self.options, k):
+        OPTION_EXCLUDED_CHECKS += data.OPTIONAL_CHECKS[k]
+
+
     if self.options.weight_early_checks:
       # Unzip the (item, weight) pairs freshly for each pick so that popping
       # an already-picked item can't desync a shared choices/weights pair --

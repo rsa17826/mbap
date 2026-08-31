@@ -30,6 +30,11 @@ _id_counter = 1
 def addItem(itemInfo: str):
   global _id_counter
   ITEM_COUNTS[itemInfo] = ITEM_COUNTS.get(itemInfo, 0) + 1
+  # print(
+  #   itemInfo,
+  #   "a_id_counter",
+  #   _id_counter,
+  # )
   if itemInfo not in ITEM_NAME_TO_ID:
     if itemInfo.startswith(data.POOL_PROGRESSION_PREFIXES):
       DEFAULT_ITEM_CLASSIFICATIONS[itemInfo] = ItemClassification.progression
