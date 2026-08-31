@@ -5,13 +5,14 @@ from Options import OptionGroup
 from worlds.AutoWorld import WebWorld
 
 from .options import option_groups, option_presets
+from . import game_data as data
 
 
 # For our game to display correctly on the website, we need to define a WebWorld subclass.
-class Vex2WebWorld(WebWorld):
+class MyAPWebWorld(WebWorld):
   # We need to override the "game" field of the WebWorld superclass.
   # This must be the same string as the regular World class.
-  game: str = "Vex2"
+  game: str = data.GAME
 
   # Your game pages will have a visual theme (affecting e.g. the background image).
   # You can choose between dirt, grass, grassFlowers, ice, jungle, ocean, partyTime, and stone.
@@ -25,7 +26,7 @@ class Vex2WebWorld(WebWorld):
   # The "link" parameter is unused, but we still need to provide it.
   setup_en: Tutorial = Tutorial(
     "Multiworld Setup Guide",
-    "A guide to setting up Vex2 for MultiWorld.",
+    "A guide to setting up " + data.GAME + " for MultiWorld.",
     "English",
     "setup_en.md",
     "setup/en",
@@ -37,7 +38,7 @@ class Vex2WebWorld(WebWorld):
   # This lets it display the tutorials more compactly.
   setup_de: Tutorial = Tutorial(
     "Multiworld Setup Guide",
-    "A guide to setting up Vex2 for MultiWorld.",
+    "A guide to setting up " + data.GAME + " for MultiWorld.",
     "German",
     "setup_de.md",
     "setup/de",

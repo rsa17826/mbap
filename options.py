@@ -41,4 +41,4 @@ for group_name, opt in OPTIONS.items():
 
   option_groups.append(OptionGroup(group_name, arr))
 
-Vex2Options = make_dataclass("Vex2Options", dataclass_fields, bases=(PerGameCommonOptions,))
+MyAPOptions = make_dataclass("MyAPOptions", dataclass_fields, bases=(PerGameCommonOptions,))

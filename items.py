@@ -61,8 +61,8 @@ for thing in PROG:
 # print(ITEM_NAME_TO_ID, "ITEM_NAME_TO_ID")
 
 
-class Vex2Item(Item):
-  game: str = "Vex2"
+class MyAPItem(Item):
+  game: str = data.GAME
 
 
 def get_random_filler_item_name(world: World) -> str:
@@ -73,8 +73,8 @@ def get_random_filler_item_name(world: World) -> str:
   return world.random.choices(data.FILLER_ITEMS, weights=weights, k=1)[0]
 
 
-def create_item_with_correct_classification(world: World, name: str) -> Vex2Item:
-  return Vex2Item(name, DEFAULT_ITEM_CLASSIFICATIONS[name], ITEM_NAME_TO_ID[name], world.player)
+def create_item_with_correct_classification(world: World, name: str) -> MyAPItem:
+  return MyAPItem(name, DEFAULT_ITEM_CLASSIFICATIONS[name], ITEM_NAME_TO_ID[name], world.player)
 
 
 def place_forced_items(world: World) -> dict[str, int]:

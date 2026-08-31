@@ -28,8 +28,8 @@ for thing in PROG:
 # _progression.py "flag:"-prefixed receives do.
 
 
-class Vex2Location(Location):
-  game: str = "Vex2"
+class MyAPLocation(Location):
+  game: str = data.GAME
 
 
 def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | None]:
@@ -58,7 +58,7 @@ def create_regular_locations(world: World) -> None:
     if excluded:
       continue
 
-    location = Vex2Location(
+    location = MyAPLocation(
       world.player,
       locationName,
       location_id,
@@ -68,7 +68,7 @@ def create_regular_locations(world: World) -> None:
 
 
 def create_events(world: World) -> None:
-  from .items import Vex2Item
+  from .items import MyAPItem
 
   # Standalone events declared directly in game_data.py (game-topology
   # specific, but expressed generically -- the engine just walks the list).
@@ -80,8 +80,8 @@ def create_events(world: World) -> None:
     _ = world.get_region(event["room"]).add_event(
       location_name=location_name,
       item_name=event["item_name"],
-      location_type=Vex2Location,
-      item_type=Vex2Item,
+      location_type=MyAPLocation,
+      item_type=MyAPItem,
     )
 
   # Events derived from _progression.py "receive" entries flagged as
@@ -94,8 +94,8 @@ def create_events(world: World) -> None:
         _ = world.get_region(thing["room"]).add_event(
           location_name=f"{thing['room']} - {event_name}",
           item_name=event_name,
-          location_type=Vex2Location,
-          item_type=Vex2Item,
+          location_type=MyAPLocation,
+          item_type=MyAPItem,
         )
 
 

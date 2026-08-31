@@ -7,10 +7,10 @@ from worlds.AutoWorld import WebWorld, World
 
 from . import game_data as data
 from . import items, locations, regions, rules, web_world
-from . import options as Vex2_options
+from . import options as MyAP_options
 
 
-class Vex2World(World):
+class MyAPWorld(World):
   """
   TODO -
   """
@@ -22,12 +22,12 @@ class Vex2World(World):
   game: ClassVar[str] = data.GAME
 
   # The WebWorld is a definition class that governs how this world will be displayed on the website.
-  web: ClassVar[WebWorld] = web_world.Vex2WebWorld()
+  web: ClassVar[WebWorld] = web_world.MyAPWebWorld()
 
   # This is how we associate the options defined in our options.py with our world.
-  # (Note: options.py has been imported as "Vex2_options" at the top of this file to avoid a name conflict)
-  options_dataclass: ClassVar[type[PerGameCommonOptions]] = cast(type[PerGameCommonOptions], Vex2_options.Vex2Options)
-  options: Vex2_options.Vex2Options
+  # (Note: options.py has been imported as "MyAP_options" at the top of this file to avoid a name conflict)
+  options_dataclass: ClassVar[type[PerGameCommonOptions]] = cast(type[PerGameCommonOptions], MyAP_options.MyAPOptions)
+  options: MyAP_options.MyAPOptions
   er_pairings: ClassVar[list[tuple[str, str]]] = []
   # Our world class must have a static location_name_to_id and item_name_to_id defined.
   # We define these in locations.py and items.py respectively, so we just set them here.
@@ -76,7 +76,7 @@ class Vex2World(World):
   # Our world class must also have a create_item function that can create any one of our items by name at any time.
   # We also put this in a different file, the same one that create_items is in.
   @override
-  def create_item(self, name: str) -> items.Vex2Item:
+  def create_item(self, name: str) -> items.MyAPItem:
     return items.create_item_with_correct_classification(self, name)
 
   # For features such as item links and panic-method start inventory, AP may ask your world to create extra filler.
@@ -96,7 +96,7 @@ class Vex2World(World):
     from .items import ITEM_NAME_TO_ID
 
     return {
-      **self.options.as_dict(*Vex2_options.option_presets["main"].keys()),
+      **self.options.as_dict(*MyAP_options.option_presets["main"].keys()),
       "AP_ITEM_IDS": {v: k for k, v in ITEM_NAME_TO_ID.items()},
       "AP_LOCATION_IDS": {loc.name: loc.address for loc in self.multiworld.get_locations(self.player) if loc.address is not None},
       **data.EXTRA_SLOT_DATA,
