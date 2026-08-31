@@ -389,8 +389,8 @@ def validate_config() -> None:
 
 
   # --- Completion items must actually be granted somewhere. ---
-  for copt in COMPLETION_OPTIONS:
-    missing_completion_items = set(COMPLETION_OPTIONS[copt]) - granted_items
+  for copt, val in COMPLETION_OPTIONS.items():
+    missing_completion_items = set(val) - granted_items
     if missing_completion_items:
       errors.append(f"COMPLETION_OPTIONS[{copt}] references item(s) never granted anywhere: {sorted(missing_completion_items)}")
 
