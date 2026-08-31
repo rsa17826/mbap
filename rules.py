@@ -43,8 +43,8 @@ def set_all_location_rules(world: World) -> None:
 
       sub_rule: Rule | None = None
       for item in clean_items:
-        if item.startswith("flag:starCanBeGot"):
-          temprule = Has("flag:starCanBeGot", int(item.split("#")[1]))
+        if "#" in item:
+          temprule = Has(item.split("#")[0], int(item.split("#")[1]))
         else:
           temprule = Has(item)
 
