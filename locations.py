@@ -6,7 +6,6 @@ from BaseClasses import Location
 
 from worlds.AutoWorld import World
 
-OPTION_EXCLUDED_CHECKS = ()
 LOCATION_NAME_TO_ID: dict[str, int] = {}
 
 _id_counter = 1

@@ -9,8 +9,6 @@ from . import game_data as data
 from . import items, locations, regions, rules, web_world
 from . import options as Vex2_options
 
-OPTION_EXCLUDED_CHECKS = ()
-
 
 class Vex2World(World):
   """
