@@ -636,6 +636,15 @@ PROG: list[ProgressionNode] = [
       "weaponCheck:WeaponMachineGun",
     ],
   },
+  {
+    "room": "level4",
+    "requires": [
+      [],
+    ],
+    "receive": [
+      "pi:pi",
+    ],
+  },
 ]
 # TODO
 # pick up weaponCheck is check? and item

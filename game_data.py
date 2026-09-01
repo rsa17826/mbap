@@ -103,6 +103,7 @@ LOCATION_ITEM_PREFIXES: tuple[str, ...] = (
   "wall:",
   "egg:",
   "weaponCheck:",
+  "pi:",
 )
 
 # Prefixes for items that are logic-only events (not real placed locations).
