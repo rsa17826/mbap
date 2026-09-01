@@ -200,10 +200,12 @@ OPTIONS = {
     ),
   ),
   "Extra Checks": (
-    "walls_are_checks",
-    "",
-    False,
-    Toggle,
+    (
+      "walls_are_checks",
+      "",
+      False,
+      Toggle,
+    ),
   ),
   "Win Condition": (
     (
