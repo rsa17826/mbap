@@ -193,31 +193,23 @@ OPTIONS = {
       Toggle,
     ),
     (
-      "walls_are_checks",
-      "",
-      False,
-      Toggle,
-    ),
-  ),
-  "?": (
-    (
-      "weight_early_checks",
-      "makes some early checks more likely to have items that unlock more\ncan get gen failures from ~29.2% to ~6.3% (tested over 1000 gens)\npresumably only useful for singleplayer",
+      "death_link",
+      "Links your fate to other players in the multiworld.\nWhen enabled, if you die, everyone else on Death Link dies too. If they die, you die. Use with caution!",
       True,
       Toggle,
     ),
+  ),
+  "Extra Checks": (
+    "walls_are_checks",
+    "",
+    False,
+    Toggle,
   ),
   "Win Condition": (
     (
       "all_achievements",
       "game only won when all achievement checks obtained",
       False,
-      Toggle,
-    ),
-    (
-      "death_link",
-      "Links your fate to other players in the multiworld.\nWhen enabled, if you die, everyone else on Death Link dies too. If they die, you die. Use with caution!",
-      True,
       Toggle,
     ),
   ),
