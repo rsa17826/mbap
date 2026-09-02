@@ -537,7 +537,7 @@ PROG: list[ProgressionNode] = [
         "weapon:WeaponFactorHammer",
         "Multiply Hoop Unlock",
         "weapon:WeaponMachineGun",
-        "weaponCheck:WeaponRocketLauncher",
+        "weapon:WeaponRocketLauncher",
       ],
     ],
     "receive": [

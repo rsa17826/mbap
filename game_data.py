@@ -305,6 +305,43 @@ def validate_config() -> None:
       EVENTS item_name: {sorted(ungranted)}"""
     )
 
+  # --- Every item referenced in ANY requires group -- including groups that
+  #     are not on the "reachable" OR path, like a stray second alternative
+  #     in an OR-of-AND list -- must be an item that CORE_ITEMS or some
+  #     _progression.py node's 'receive' actually lists verbatim. This is
+  #     deliberately narrower than 'granted_items' above (which also allows
+  #     EVENTS item_name): a group referencing a name that's never once
+  #     spelled out in CORE_ITEMS/receive is a broken/typo'd requirement,
+  #     even if the node as a whole is still reachable via a different
+  #     group in the same OR-of-AND list. ---
+  core_and_receive_items: set[str] = set(CORE_ITEMS)
+  for node in PROG:
+    core_and_receive_items.update(node.get("receive", []))
+
+  def _check_requires_groups(source_label: str, requires: list[list[str]] | None) -> None:
+    if not requires:
+      return
+
+    for group in requires:
+      for item in group:
+        base = _base_name(item)
+        if base not in core_and_receive_items:
+          errors.append(f"{source_label} requires group {group} references item '{item}', which is not in CORE_ITEMS or any _progression.py node's 'receive' list.")
+        elif base.startswith(NON_POOL_PREFIXES):
+          errors.append(
+            f"{source_label} requires group {group} references item '{item}', which matches a NON_POOL_PREFIXES prefix -- "
+            f"it's never created as a real pool item, so it can never actually be granted to a player and used to satisfy this requirement."
+          )
+
+  for node in PROG:
+    _check_requires_groups(f"_progression.py node {node}", node.get("requires"))
+
+  for conn in CONNECTIONS:
+    _check_requires_groups(f"CONNECTIONS entry {conn}", conn.get("requires"))
+
+  for event in EVENTS:
+    _check_requires_groups(f"EVENTS entry {event}", event.get("requires"))
+
   # --- CORE_ITEMS should not overlap items already granted via PROG receive
   #     under a location/event prefix, since that would double-declare it. ---
 
