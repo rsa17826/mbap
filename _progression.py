@@ -550,7 +550,7 @@ PROG: list[ProgressionNode] = [
       ],
     ],
     "receive": [
-      "egg:149.7 70.1 641.7",
+      "egg:149.7 18.4 906.0",
     ],
   },
   {
