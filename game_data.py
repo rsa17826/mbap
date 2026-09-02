@@ -189,12 +189,6 @@ from Options import Toggle
 OPTIONS = {
   "Gameplay": (
     (
-      "all_levels_complete",
-      "game won when all levels have been beaten",
-      True,
-      Toggle,
-    ),
-    (
       "death_link",
       "Links your fate to other players in the multiworld.\nWhen enabled, if you die, everyone else on Death Link dies too. If they die, you die. Use with caution!",
       True,
@@ -211,11 +205,17 @@ OPTIONS = {
   ),
   "Win Condition": (
     (
-      "all_achievements",
-      "game only won when all achievement checks obtained",
-      False,
+      "all_levels_complete",
+      "game won when all levels have been beaten",
+      True,
       Toggle,
     ),
+    # (
+    #   "all_achievements",
+    #   "game only won when all achievement checks obtained",
+    #   False,
+    #   Toggle,
+    # ),
   ),
 }
 
