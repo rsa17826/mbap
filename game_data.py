@@ -97,7 +97,7 @@ EVENTS: list[EventDef] = [
 # names -- the engine only ever asks "does this name start with a prefix in
 # category X", it never hardcodes what the prefixes themselves are.
 
-# Prefixes for items that get placed as real, shuffled locations.
+# Prefixes for checks.
 LOCATION_ITEM_PREFIXES: tuple[str, ...] = (
   "level:",
   "wall:",
@@ -179,11 +179,19 @@ OPTIONAL_CHECKS: dict[str, tuple[str, ...]] = {"walls_are_checks": ("wall:",)}
 # ---------------------------------------------------------------------------
 
 # Locations that get an early, weighted-random item forced onto them.
-EARLY_CHECK_LOCATIONS: list[tuple[str, str]] = []
+EARLY_CHECK_LOCATIONS: list[tuple[str, str]] = [
+  ("menu", "level:level1"),
+]
 
 # (item_name, weight) pairs -- kept together as tuples so the item list and
 # its weights can never silently drift out of sync in length/order.
-EARLY_CHECK_POOL: list[tuple[str, float]] = []
+EARLY_CHECK_POOL: list[tuple[str, float]] = [
+  ("level:level2", 92.78),
+  ("level:level3", 5.46),
+  ("level:level4", 0.81),
+  ("level:level5", 0.72),
+  ("level:level1", 0.24),
+]
 
 from Options import Toggle
 
@@ -192,6 +200,14 @@ OPTIONS = {
     (
       "death_link",
       "Links your fate to other players in the multiworld.\nWhen enabled, if you die, everyone else on Death Link dies too. If they die, you die. Use with caution!",
+      True,
+      Toggle,
+    ),
+  ),
+  "?": (
+    (
+      "weight_early_checks",
+      "makes some early checks more likely to have items that unlock more\ncan get gen failures from ~23.5% to ~0.2% (tested over 1000 gens)\npresumably only useful for singleplayer",
       True,
       Toggle,
     ),
@@ -328,10 +344,7 @@ def validate_config() -> None:
         if base not in core_and_receive_items:
           errors.append(f"{source_label} requires group {group} references item '{item}', which is not in CORE_ITEMS or any _progression.py node's 'receive' list.")
         elif base.startswith(NON_POOL_PREFIXES):
-          errors.append(
-            f"{source_label} requires group {group} references item '{item}', which matches a NON_POOL_PREFIXES prefix -- "
-            f"it's never created as a real pool item, so it can never actually be granted to a player and used to satisfy this requirement."
-          )
+          errors.append(f"{source_label} requires group {group} references item '{item}', which matches a NON_POOL_PREFIXES prefix -- it's never created as a real pool item, so it can never actually be granted to a player and used to satisfy this requirement.")
 
   for node in PROG:
     _check_requires_groups(f"_progression.py node {node}", node.get("requires"))
