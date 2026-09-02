@@ -21,7 +21,10 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level1",
     "requires": [
-      [],
+      [
+        "Multiply Hoop Unlock",
+        "Light Area Unlock",
+      ],
     ],
     "receive": [
       "level:level2",
@@ -51,7 +54,10 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level4",
     "requires": [
-      [],
+      [
+        "Exponent Hoop Unlock",
+        "weapon:throw",
+      ],
     ],
     "receive": [
       "level:level5",
@@ -61,9 +67,13 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level5",
     "requires": [
-      [],
+      [
+        "weapon:throw",
+        "weapon:WeaponFactorHammer",
+      ],
     ],
     "receive": [
+      "level:level6",
       "flag:beat level5",
     ],
   },
@@ -522,7 +532,10 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level5",
     "requires": [
-      [],
+      [
+        "weapon:throw",
+        "weapon:WeaponFactorHammer",
+      ],
     ],
     "receive": [
       "egg:47.3 70.1 641.7",
@@ -531,7 +544,10 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level5",
     "requires": [
-      [],
+      [
+        "weapon:throw",
+        "weapon:WeaponFactorHammer",
+      ],
     ],
     "receive": [
       "egg:149.7 70.1 641.7",
@@ -540,7 +556,9 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level1",
     "requires": [
-      [],
+      [
+        "weapon:WeaponMachineGun",
+      ],
     ],
     "receive": [
       "weaponCheck:WeaponMachineGun",
@@ -549,7 +567,9 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level1",
     "requires": [
-      [],
+      [
+        "weapon:WeaponRocketLauncher",
+      ],
     ],
     "receive": [
       "weaponCheck:WeaponRocketLauncher",
@@ -558,7 +578,9 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level2",
     "requires": [
-      [],
+      [
+        # "weapon:WeaponRocketLauncher",
+      ],
     ],
     "receive": [
       "weaponCheck:WeaponRocketLauncher",
@@ -567,7 +589,9 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level2",
     "requires": [
-      [],
+      # [
+      #   "weapon:WeaponMachineGun",
+      # ],
     ],
     "receive": [
       "weaponCheck:WeaponMachineGun",
@@ -576,7 +600,15 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level2",
     "requires": [
-      [],
+      [
+        "weapon:WeaponRocketLauncher",
+      ],
+      [
+        "weapon:throw",
+      ],
+      [
+        "weapon:WeaponMachineGun",
+      ],
     ],
     "receive": [
       "weaponCheck:WeaponMultiplyCone",
@@ -585,7 +617,9 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level3",
     "requires": [
-      [],
+      # [
+      #   "weapon:WeaponMachineGun",
+      # ],
     ],
     "receive": [
       "weaponCheck:WeaponMachineGun",
@@ -594,7 +628,9 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level3",
     "requires": [
-      [],
+      # [
+      #   "weapon:WeaponSword",
+      # ],
     ],
     "receive": [
       "weaponCheck:WeaponSword",
@@ -603,7 +639,9 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level4",
     "requires": [
-      [],
+      # [
+      #   "weapon:WeaponMultiplyCone",
+      # ],
     ],
     "receive": [
       "weaponCheck:WeaponMultiplyCone",
@@ -611,9 +649,7 @@ PROG: list[ProgressionNode] = [
   },
   {
     "room": "level5",
-    "requires": [
-      [],
-    ],
+    "requires": [],
     "receive": [
       "weaponCheck:WeaponFactorHammer",
     ],
@@ -621,7 +657,10 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level5",
     "requires": [
-      [],
+      [
+        "weapon:throw",
+        "weapon:WeaponFactorHammer",
+      ],
     ],
     "receive": [
       "weaponCheck:WeaponRocketLauncher",
@@ -630,7 +669,10 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level5",
     "requires": [
-      [],
+      [
+        "weapon:throw",
+        "weapon:WeaponFactorHammer",
+      ],
     ],
     "receive": [
       "weaponCheck:WeaponMachineGun",
@@ -639,7 +681,10 @@ PROG: list[ProgressionNode] = [
   {
     "room": "level4",
     "requires": [
-      [],
+      [
+        "Exponent Hoop Unlock",
+        "weapon:throw",
+      ],
     ],
     "receive": [
       "pi:pi",

@@ -135,6 +135,7 @@ NON_POOL_PREFIXES: tuple[str, ...] = (
 # there's nothing move-specific about the mechanism itself.
 # NOTE used for all items that are only added in the ap and not origionaly in the game as if not granted in game they wont be in any receives
 CORE_ITEMS: tuple[str, ...] = (
+  "weapon:throw",
   "weapon:WeaponMachineGun",
   "weapon:WeaponRocketLauncher",
   "weapon:WeaponMultiplyCone",
