@@ -36,12 +36,13 @@ def addItem(itemInfo: str):
   #   _id_counter,
   # )
   if itemInfo not in ITEM_NAME_TO_ID:
+    if itemInfo.startswith(data.NON_POOL_PREFIXES):
+      return
+
     if itemInfo.startswith(data.POOL_PROGRESSION_PREFIXES):
       DEFAULT_ITEM_CLASSIFICATIONS[itemInfo] = ItemClassification.progression
       ITEM_NAME_TO_ID[itemInfo] = _id_counter
       _id_counter += 1
-    elif itemInfo.startswith(data.NON_POOL_PREFIXES):
-      return
     else:
       print(itemInfo, "not used")
 
