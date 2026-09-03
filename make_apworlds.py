@@ -96,7 +96,10 @@ for worldname, worldtype in AutoWorldRegister.world_types.items():
 
   with zipfile.ZipFile(zip_path, "x", zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
     for path in world_directory.rglob("*.*"):
-      if "__pycache__" in path.parts:
+      if "__pycache__" in path.parts or ".git" in path.parts:
+        continue
+
+      if path.is_dir():
         continue
 
       relative_path = os.path.join(*path.parts[path.parts.index("worlds") + 1 :])

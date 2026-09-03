@@ -80,9 +80,14 @@ def set_completion_condition(world: World) -> None:
 
   for option_name in data.COMPLETION_OPTIONS:
     if getattr(world.options, option_name):
-      for item in data.COMPLETION_OPTIONS[option_name]:
-        rule &= Has(item)
+      for group in data.COMPLETION_OPTIONS[option_name]:
+        tempRule: Rule[World] = True_()
+        for item in group:
+          tempRule &= Has(item)
+
+        rule |= tempRule
 
 
 
+  # print(rule, "rulerulerulerule")
   world.set_completion_rule(rule)

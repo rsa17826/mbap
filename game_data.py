@@ -171,7 +171,11 @@ LINKED_EVENT_TEMPLATES: dict[str, str] = {
 # Name of the boolean world option that, when True, gates completion behind
 # COMPLETION_REQUIRED_ITEMS. Set to None if completion should never be
 # gated by an option (rule is then just always-True).
-COMPLETION_OPTIONS: dict[str, list[str]] = {"all_levels_complete": [f"flag:beat level{i + 1}" for i in range(5)]}
+COMPLETION_OPTIONS: dict[str, list[list[str]]] = {
+  "all_levels_complete": [
+    [f"level:level{i + 1}" for i in range(5)],
+  ]
+}
 
 OPTIONAL_CHECKS: dict[str, tuple[str, ...]] = {"walls_are_checks": ("wall:",)}
 # ---------------------------------------------------------------------------
@@ -235,7 +239,6 @@ OPTIONS = {
     # ),
   ),
 }
-
 EXTRA_SLOT_DATA: dict[str, int | float | str] = {}
 
 # ---------------------------------------------------------------------------
@@ -453,9 +456,10 @@ def validate_config() -> None:
 
   # --- Completion items must actually be granted somewhere. ---
   for copt, val in COMPLETION_OPTIONS.items():
-    missing_completion_items = set(val) - granted_items
-    if missing_completion_items:
-      errors.append(f"COMPLETION_OPTIONS[{copt}] references item(s) never granted anywhere: {sorted(missing_completion_items)}")
+    for vval in val:
+      missing_completion_items = set(vval) - granted_items
+      if missing_completion_items:
+        errors.append(f"COMPLETION_OPTIONS[{copt}] references item(s) never granted anywhere: {sorted(missing_completion_items)}")
 
 
   if errors:
