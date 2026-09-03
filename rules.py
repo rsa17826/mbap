@@ -56,7 +56,6 @@ def set_all_location_rules(world: World) -> None:
 
     if allConditions:
       rule = reduce(lambda a, s: a | s, allConditions)
-
       for itemInfo in node["receive"]:
         if itemInfo.startswith(data.LOCATION_ITEM_PREFIXES + data.EVENT_ITEM_PREFIXES):
           loc_name = f"{room} - {itemInfo}"
