@@ -558,22 +558,14 @@ PROG: list[ProgressionNode] = [
   },
   {
     "room": "level1",
-    "requires": [
-      [
-        "weapon:WeaponMachineGun",
-      ],
-    ],
+    "requires": [],
     "receive": [
       "weaponCheck:WeaponMachineGun",
     ],
   },
   {
     "room": "level1",
-    "requires": [
-      [
-        "weapon:WeaponRocketLauncher",
-      ],
-    ],
+    "requires": [],
     "receive": [
       "weaponCheck:WeaponRocketLauncher",
     ],
